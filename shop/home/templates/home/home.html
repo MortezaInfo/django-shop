@@ -1,0 +1,866 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<section id="hero" class="d-flex align-items-center justify-content-center">
+  <div class="container" data-aos="fade-up">
+    <div
+      class="row justify-content-center"
+      data-aos="fade-up"
+      data-aos-delay="150"
+    >
+      <div class="col-xl-6 col-lg-8">
+        <h1><span>فروشگاه نوبهاری</span></h1>
+        <h2>یک نوعِ متفاوت از فروشگاه هایی که دیده‌اید ،همیشه پر از خلاقیت</h2>
+      </div>
+    </div>
+
+    <div
+      class="row gy-4 mt-5 justify-content-center"
+      data-aos="zoom-in"
+      data-aos-delay="250"
+    >
+      <div class="col-xl-2 col-md-4">
+        <div class="icon-box">
+          <i class="ri-store-line"></i>
+          <h3><a href="">ارسال رایگان</a></h3>
+        </div>
+      </div>
+      <div class="col-xl-2 col-md-4">
+        <div class="icon-box">
+          <i class="ri-bar-chart-box-line"></i>
+          <h3><a href="">ضمانت تعویض</a></h3>
+        </div>
+      </div>
+      <div class="col-xl-2 col-md-4">
+        <div class="icon-box">
+          <i class="ri-calendar-todo-line"></i>
+          <h3><a href="">مطابقت کامل محصول</a></h3>
+        </div>
+      </div>
+      <div class="col-xl-2 col-md-4">
+        <div class="icon-box">
+          <i class="ri-paint-brush-line"></i>
+          <h3><a href="">بسته بندی مناسب</a></h3>
+        </div>
+      </div>
+      <div class="col-xl-2 col-md-4">
+        <div class="icon-box">
+          <i class="ri-database-2-line"></i>
+          <h3><a href="">فروش کالای خودتون </a></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+      <div class="row align-items-center">
+        <div
+          class="col-lg-6 order-1 order-lg-2"
+          data-aos="fade-left"
+          data-aos-delay="100"
+        >
+          <img
+            src="{% static 'home/assets/img/about.png' %}"
+            class="img-fluid"
+            alt=""
+            style="width: 600px; height: 400px"
+          />
+        </div>
+        <div
+          class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content align-items-center"
+          data-aos="fade-right"
+          data-aos-delay="100"
+        >
+          <h3>همکاری با مجموعه نوبهاری</h3>
+          <p>
+            سلام حالت چطوره؟امروز میخوام یه ویژگی جذاب و پول ساز از سایت نوبهاری
+            رو براتون توضیح بدم،با این روشی که امروز بهتون آموزش میدم شما
+            میتونین خیلی راحت از داخل خونتون درآمد کسب کنین.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+
+  <!-- ======= Clients Section ======= -->
+  <section id="clients" class="clients">
+    <div class="container" data-aos="zoom-in">
+      <div class="clients-slider swiper">
+        <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide">
+            <img
+              src="{% static 'home/assets/img/clients/client-1.png' %}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="{% static 'home/assets/img/clients/client-2.png' %}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="{% static 'home/assets/img/clients/client-3.png' %}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="{% static 'home/assets/img/clients/client-4.png' %}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="{% static 'home/assets/img/clients/client-5.png' %}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="{% static 'home/assets/img/clients/client-6.png' %}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="{% static 'home/assets/img/clients/client-7.png' %}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="{% static 'home/assets/img/clients/client-8.png' %}"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+  <!-- End Clients Section -->
+
+  <!-- ======= Features Section ======= -->
+  <section id="features" class="features">
+    <div class="container" data-aos="fade-up">
+      <div class="row align-items-center">
+        <div
+          class="image col-lg-6"
+          style="background-image: url('static/home/assets/img/features.jpg')"
+          data-aos="fade-right"
+        ></div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+          <div
+            class="icon-box mt-5 mt-lg-0"
+            data-aos="zoom-in"
+            data-aos-delay="150"
+          >
+            <i class="bx bx-receipt"></i>
+            <h4>طرح فروش بهاره</h4>
+          </div>
+          <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+            <i class="bx bx-cube-alt"></i>
+            <h4>پیشنهادات ویژه</h4>
+          </div>
+          <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+            <i class="bx bx-images"></i>
+            <h4>همکاری با فروشگاه</h4>
+          </div>
+          <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+            <i class="bx bx-shield"></i>
+            <h4>جذاب های این هفته</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <p>محصولات</p>
+        <h2>فروشگاه نوبهاری</h2>
+      </div>
+      <div class="row">
+        <div ></div>
+        <form action="{% url 'home:question' %}" method="post"  id = 'search_form' class="col-6" novalidate>{% csrf_token %}
+          {{ search_form }}
+          <div class="mt-2"></div>
+          <button type="submit" class="col-6">جستجو</button>
+        </form>
+
+      </div>
+
+      <div class="row">
+        <div
+          class="col-lg-4 col-md-6 d-flex align-items-stretch"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="icon-box">
+            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+            <h4><a href="{% url 'home:search' %}?sort_by=1">جــــــدیــد تریـن‌های اخــیــــــــر</a></h4>
+            <p>
+              پیراهن مردانه ارزان ، تی شرت، کفش ورزشی، سویشرت، انواع کاپشن،
+              شلوار، ست مردانه ، بافت مردانه ، بوت و نیم بوت زنانه و ...
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-file"></i></div>
+            <h4><a href="{% url 'home:search' %}?sort_by=2">محــبوبــــ‌ترینــ بــرنــدها</a></h4>
+            <p>ساعت هوشمند ، ادکلن، عینک و ...</p>
+          </div>
+        </div>
+
+        <div
+          class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        >
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-tachometer"></i></div>
+            <h4><a href="{% url 'home:search' %}?sort_by=5">پرفـــروش تریـن‌های اخــیــــــــر</a></h4>
+            <p>
+              پیراهن مردانه ارزان ، تی شرت، کفش ورزشی، سویشرت، انواع کاپشن،
+              شلوار، ست مردانه ، بافت مردانه ، بوت و نیم بوت زنانه و ...
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-world"></i></div>
+            <h4><a href="{% url 'home:search' %}?sort_by=4"></a> پر تخفیف ترین ها</h4>
+            <p>
+              پیراهن مردانه ارزان ، تی شرت، کفش ورزشی، سویشرت، انواع کاپشن،
+              شلوار، ست مردانه ، بافت مردانه ، بوت و نیم بوت زنانه و ...
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-slideshow"></i></div>
+            <h4><a href="">ست ها</a></h4>
+            <p>انواع ست های زنانه مردانه و بچگانه...</p>
+          </div>
+        </div>
+
+        <div
+          class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        >
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-arch"></i></div>
+            <h4><a href="">مجلات فروشگاه</a></h4>
+            <p>
+              برای یک خرید اینترنتی آسان، فروشگاه نوبهاری اولین سایت تخصصی مد و
+              متنوع ترین سایت خرید آنلاین پوشاک، اکسسوری و لوازم جانبی ، کالاهای
+              با کیفیت را با تضمین قیمت و امکان بازگشت کالا برای شما فراهم آورده
+              است .
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Cta Section ======= -->
+  <section id="cta" class="cta">
+    <div class="container" data-aos="zoom-in">
+      <div class="text-center">
+        <h3>خرید اینترنتی جدیدترین محصولات با بهترین قیمت</h3>
+        <p>
+          فروشگاه نوبهاری یک نوعِ متفاوتی از فروشگاه هایی است که دیده‌اید، همیشه
+          پر از خلاقیت، که هدف اصلی آن ایجاد یک تجربه خوب از خرید اینترنتی برای
+          تمام مشتریان می باشد. در این بخش از فروشگاه، شما امکان خرید آنلاین
+          انواع لوازم خانگی برندهای معتبر بازار را با تضمین بهترین قیمت ممکن
+          دارید. همچنین بسته های متنوع جهیزیه ای فراهم شده تا کار شما برای
+          انتخاب لوازم جهیزیه ساده تر شود. تمامی لوازم خانگی ها دارای گارانتی
+          اصلی شرکتی بوده و همانطور که مشاهده می فرمائید تنوع موجودی لوازم خانگی
+          ها نسبت به تمام فروشگاه های دیگر بالاتر می باشد، بدین منظور و جهت
+          سهولت در خرید شما به راحتی امکان فیلترینگ محصولات جهت دسترسی سریعتر به
+          محصول مورد نظر را دارا می باشید.
+        </p>
+        <a class="cta-btn" href="#">مشاهده تمام محصولات</a>
+      </div>
+    </div>
+  </section>
+  <!-- End Cta Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <p>دسته بندی</p>
+        <h2>فروشگاه</h2>
+      </div>
+
+      <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">همه محصولات</li>
+            <li data-filter=".filter-app">زنانه</li>
+            <li data-filter=".filter-card">مردانه</li>
+            <li data-filter=".filter-web">بچگانه</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="row portfolio-container"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img
+              src="{% static 'home/assets/img/portfolio/portfolio-1.jpg' %}"
+              class="img-fluid"
+              alt=""
+            />
+            <div class="portfolio-info">
+              <h4>لباس زنانه</h4>
+              <div class="portfolio-links">
+                <a
+                  href="{% static 'home/assets/img/portfolio/portfolio-1.jpg' %}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  title="App 1"
+                  ><i class="bx bx-plus"></i
+                ></a>
+                <a href="category/women-cloths" title="More Details"
+                  ><i class="bx bx-link"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img
+              src="{% static 'home/assets/img/portfolio/portfolio-2.jpg' %}"
+              class="img-fluid"
+              alt=""
+            />
+            <div class="portfolio-info">
+              <h4>لباس مردانه</h4>
+              <div class="portfolio-links">
+                <a
+                  href="{% static 'home/assets/img/portfolio/portfolio-2.jpg' %}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  title="Web 3"
+                  ><i class="bx bx-plus"></i
+                ></a>
+                <a href="category/men-cloths" title="More Details"
+                  ><i class="bx bx-link"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img
+              src="{% static 'home/assets/img/portfolio/portfolio-3.jpg' %}"
+              class="img-fluid"
+              alt=""
+            />
+            <div class="portfolio-info">
+              <h4>شلوار زنانه</h4>
+              <div class="portfolio-links">
+                <a
+                  href="{% static 'home/assets/img/portfolio/portfolio-3.jpg' %}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  title="App 2"
+                  ><i class="bx bx-plus"></i
+                ></a>
+                <a href="category/women-sports" title="More Details"
+                  ><i class="bx bx-link"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img
+              src="{% static 'home/assets/img/portfolio/portfolio-4.jpg' %}"
+              class="img-fluid"
+              alt=""
+            />
+            <div class="portfolio-info">
+              <h4>دخترانه</h4>
+              <div class="portfolio-links">
+                <a
+                  href="{% static 'home/assets/img/portfolio/portfolio-4.jpg' %}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  title="Card 2"
+                  ><i class="bx bx-plus"></i
+                ></a>
+                <a href="category/kids_shop/" title="More Details"
+                  ><i class="bx bx-link"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img
+              src="{% static 'home/assets/img/portfolio/portfolio-5.jpg' %}"
+              class="img-fluid"
+              alt=""
+            />
+            <div class="portfolio-info">
+              <h4>شوار مردانه</h4>
+              <div class="portfolio-links">
+                <a
+                  href="{% static 'home/assets/img/portfolio/portfolio-5.jpg' %}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  title="Web 2"
+                  ><i class="bx bx-plus"></i
+                ></a>
+                <a href="category/men-jumpsuits" title="More Details"
+                  ><i class="bx bx-link"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img
+              src="{% static 'home/assets/img/portfolio/portfolio-6.jpg' %}"
+              class="img-fluid"
+              alt=""
+            />
+            <div class="portfolio-info">
+              <h4>کفش زنانه</h4>
+              <div class="portfolio-links">
+                <a
+                  href="{% static 'home/assets/img/portfolio/portfolio-6.jpg' %}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  title="App 3"
+                  ><i class="bx bx-plus"></i
+                ></a>
+                <a href="cagtegory/women-shoes" title="More Details"
+                  ><i class="bx bx-link"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img
+              src="{% static 'home/assets/img/portfolio/portfolio-7.jpg' %}"
+              class="img-fluid"
+              alt=""
+            />
+            <div class="portfolio-info">
+              <h4>پسرانه</h4>
+              <div class="portfolio-links">
+                <a
+                  href="{% static 'home/assets/img/portfolio/portfolio-7.jpg' %}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  title="Card 1"
+                  ><i class="bx bx-plus"></i
+                ></a>
+                <a href="category/kids_shop/" title="More Details"
+                  ><i class="bx bx-link"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img
+              src="{% static 'home/assets/img/portfolio/portfolio-8.jpg' %}"
+              class="img-fluid"
+              alt=""
+            />
+            <div class="portfolio-info">
+              <h4>نوزاد</h4>
+              <div class="portfolio-links">
+                <a
+                  href="{% static 'home/assets/img/portfolio/portfolio-8.jpg' %}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  title="Card 3"
+                  ><i class="bx bx-plus"></i
+                ></a>
+                <a href="category/kids_shop" title="More Details"
+                  ><i class="bx bx-link"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img
+              src="{% static 'home/assets/img/portfolio/portfolio-9.jpg' %}"
+              class="img-fluid"
+              alt=""
+            />
+            <div class="portfolio-info">
+              <h4>کفش مردانه</h4>
+              <div class="portfolio-links">
+                <a
+                  href="{% static 'home/assets/img/portfolio/portfolio-9.jpg' %}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  title="Web 3"
+                  ><i class="bx bx-plus"></i
+                ></a>
+                <a href="category/men-shoes" title="More Details"
+                  ><i class="bx bx-link"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Portfolio Section -->
+
+  <!-- ======= Counts Section ======= -->
+  <section id="counts" class="counts">
+    <div class="container" data-aos="fade-up">
+      <div class="row no-gutters">
+        <div
+          class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
+          data-aos="fade-right"
+          data-aos-delay="100"
+        ></div>
+        <div
+          class="col-xl-7 ps-4 ps-lg-5 pe-4 pe-lg-1 d-flex align-items-stretch"
+          data-aos="fade-left"
+          data-aos-delay="100"
+        >
+          <div class="content d-flex flex-column justify-content-center">
+            <h3>وضعیت و اطلاعات فروشگاه</h3>
+            <div class="row">
+              <div class="col-md-6 d-md-flex align-items-md-stretch">
+                <div class="count-box">
+                  <i class="bi bi-emoji-smile"></i>
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="5430"
+                    data-purecounter-duration="2"
+                    class="purecounter"
+                  ></span>
+                  <p>
+                    <strong>تعداد کل محصولات</strong>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 d-md-flex align-items-md-stretch">
+                <div class="count-box">
+                  <i class="bi bi-journal-richtext"></i>
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="85"
+                    data-purecounter-duration="2"
+                    class="purecounter"
+                  ></span>
+                  <p>
+                    <strong>مقاله و مجله ها</strong>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 d-md-flex align-items-md-stretch">
+                <div class="count-box">
+                  <i class="bi bi-clock"></i>
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="35"
+                    data-purecounter-duration="4"
+                    class="purecounter"
+                  ></span>
+                  <p>
+                    <strong>سفارش های امروز</strong>
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 d-md-flex align-items-md-stretch">
+                <div class="count-box">
+                  <i class="bi bi-award"></i>
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="840"
+                    data-purecounter-duration="4"
+                    class="purecounter"
+                  ></span>
+                  <p>
+                    <strong>سفارش های هفت روز اخیر</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End .content-->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Counts Section -->
+
+  <!-- ======= Testimonials Section ======= -->
+  <section id="testimonials" class="testimonials">
+    <div class="container" data-aos="zoom-in">
+      <div
+        class="testimonials-slider swiper"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="{% static 'home/assets/img/testimonials/testimonials-1.jpg' %}"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>مرتضی نوبهاری</h3>
+              <h4>Ceo &amp; Founder</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Proin iaculis purus consequat sem cure digni ssim donec
+                porttitora entum suscipit rhoncus. Accusantium quam, ultricies
+                eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="{% static 'home/assets/img/testimonials/testimonials-2.jpg' %}"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Sara Wilsson</h3>
+              <h4>Designer</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Export tempor illum tamen malis malis eram quae irure esse
+                labore quem cillum quid cillum eram malis quorum velit fore eram
+                velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="{% static 'home/assets/img/testimonials/testimonials-3.jpg' %}"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Jena Karlis</h3>
+              <h4>Store Owner</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Enim nisi quem export duis labore cillum quae magna enim sint
+                quorum nulla quem veniam duis minim tempor labore quem eram duis
+                noster aute amet eram fore quis sint minim.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="{% static 'home/assets/img/testimonials/testimonials-4.jpg' %}"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>Matt Brandon</h3>
+              <h4>Freelancer</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Fugiat enim eram quae cillum dolore dolor amet nulla culpa
+                multos export minim fugiat minim velit minim dolor enim duis
+                veniam ipsum anim magna sunt elit fore quem dolore labore illum
+                veniam.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <img
+                src="{% static 'home/assets/img/testimonials/testimonials-5.jpg' %}"
+                class="testimonial-img"
+                alt=""
+              />
+              <h3>John Larson</h3>
+              <h4>Entrepreneur</h4>
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua
+                veniam tempor noster veniam enim culpa labore duis sunt culpa
+                nulla illum cillum fugiat legam esse veniam culpa fore nisi
+                cillum quid.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          <!-- End testimonial item -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+  <!-- End Testimonials Section -->
+
+  <!-- ======= Team Section ======= -->
+  <section id="team" class="team">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>تیم</h2>
+        <p>مالکان فروشگاه نوبهاری</p>
+      </div>
+
+      <div class="row text-center align-items-center">
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="200">
+            <div class="member-img">
+              <img
+                src="{% static 'home/assets/img/team/team-2.jpg' %}"
+                class="img-fluid"
+                alt=""
+              />
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>نوبهاری</h4>
+              <span>مالک</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="300">
+            <div class="member-img">
+              <img
+                src="{% static 'home/assets/img/team/team-3.jpg' %}"
+                class="img-fluid"
+                alt=""
+              />
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>عبدالهی</h4>
+              <span>مالک</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Team Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>موقعیت</h2>
+        <p>موقعیت جفرافیایی فروشگاه</p>
+      </div>
+
+      <div>
+        <iframe
+          style="border: 0; width: 100%; height: 270px"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+</main>
+<!-- End #main -->
+
+<!-- ======= Footer ======= -->
+
+<!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"
+  ><i class="bi bi-arrow-up-short"></i
+></a>
+
+{% endblock %}

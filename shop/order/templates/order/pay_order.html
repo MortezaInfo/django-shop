@@ -1,0 +1,100 @@
+{% extends 'base.html' %} 
+
+{% load widget_tweaks %}
+
+
+{% block head %}
+.icon-hover-primary:hover {
+  border-color: #3b71ca !important;
+  background-color: white !important;
+}
+
+.icon-hover-primary:hover i {
+  color: #3b71ca !important;
+}
+.icon-hover-danger:hover {
+  border-color: #dc4c64 !important;
+  background-color: white !important;
+}
+
+.icon-hover-danger:hover i {
+  color: #dc4c64 !important;
+}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+<section class="bg-light my-5">
+  <div class="container">
+    <div class="row ">
+      <div class="col-lg-9">
+        <div class="card border shadow-0 ">
+          <div class="m-4">
+            <h4 class="card-title mb-4">لیست سبد خرید ثبت شده شما</h4>
+            {% if orders %}
+            <table class="table table-dark table-striped mt-5 ">
+              <thead class="mt-5 ">
+                <tr class="mt-5">
+                  <th scope="col">#</th>
+                  <th scope="col">وضعیت</th>
+                  <th scope="col">تخفیف</th>
+                  <th scope="col">قیمت سبد</th>
+                  <th scope="col">حذف سبد</th>
+                  <th scope="col">جزییات سبد</th>
+
+                </tr>
+              </thead>
+              
+              <tbody>
+                {% for order in orders %}
+                <tr>
+                  <th scope="row ">{{forloop.counter}}</th>
+                  <td>
+                    {% if order.paid %}
+                    <p>پرداخت شده</p>
+                    {% else %}
+                    <p>پرداخت نشده</p>
+                    {% endif %}
+                  </td>
+                  <td>%{{order.discount}}</td>
+                  <td>{{order.get_total_price}}</td>
+                  <td>
+                    <a href="{% url 'order:order_remove' order.id %}"> حذف </a>
+                  </td>
+                  <td>
+                    <a href="{% url 'order:order_detail' order.id %}" class="btn btn-primary">ثبت تخفیف و خرید</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              
+            </table> 
+            {% else %}
+            <h3> لیست خرید شما خالی ست لطفا به <a href="/">فروشگاه</a> رفته و محصولی را به سبد خرید وارد و ثبت کنید</h3>
+
+            {% endif %}
+            
+          </div>
+
+          <div class="border-top pt-4 mx-4 mb-4">
+            
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
+
+
+
+
+

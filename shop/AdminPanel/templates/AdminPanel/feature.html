@@ -1,0 +1,85 @@
+{% extends './base.html' %} {% block content %}
+
+
+  <div class="container-fluid px-4 text-center">
+    <h1 class="mt-4"> محصولات شرکت {{user}}</h1>
+    
+    <div class="card mb-4 mt-5">
+      <div class="card-header">
+        </div>
+      <div class="card-body text-center">
+        <table id="datatablesSimple">
+          <thead>
+            <tr>
+              <th style="width: 300px;">کلید</th>
+              <th style="width: 300px;">مقدار</th>
+              <th style="width: 300px;">در دسترس</th>
+              <th style="width: 300px;">ویرایش</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            {% for feature in features %}
+            <tr>
+              <td>{{feature.name}}</td>
+              <td>{{feature.value}}</td>
+              
+              <td>
+                
+
+                {% if request.user.is_staff %}
+                
+                    {% if feature.access %}
+                    <a
+                    href="{% url 'admin_panel:confirm_feature' feature.id %}"
+                    class="btn btn-success"
+                    > 
+                    تایید شده
+                    </a>
+                    {% else %}
+                    <a
+                    href="{% url 'admin_panel:confirm_feature' feature.id %}"
+                    class="btn btn-danger"
+                    > 
+                    در انتظار تایید
+                    </a>
+                    {% endif %}
+
+              
+                {% else %}
+                  {% if feature.access %}
+                  <div
+                  class="btn btn-success"
+                  > 
+                  تایید شده
+                  </div>
+                  {% else %}
+                  <div
+                  class="btn btn-danger"
+                  > 
+                  در انتظار تایید
+                  </div>
+                  {% endif %}
+
+                {% endif %}
+                
+                
+              </td>
+              <td>
+                <a
+                  href="{% url 'admin_panel:edit_feature' feature.id %}"
+                  class="btn btn-info"
+                >
+                  ویرایش فیچر</a
+                >
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

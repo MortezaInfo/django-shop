@@ -1,0 +1,91 @@
+{% extends './base.html' %} {% load crispy_forms_tags %} {% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  
+  <div class="card mb-4 mt-5">
+    <div class="card-header">
+      <h1 class="text-center"> {{name}}</h1>
+    </div>
+    <div class="card-body">
+      {% for img in images %}
+        <img src="{{img.images.url}}" style="width: 150px; height: 150px" />
+        <a href="{% url 'admin_panel:delete_photo' img.id %}"class="btn btn-info">حذف عکس</a>
+      {% endfor %}
+      <div class="row text-center border">
+        {% if request.user.is_staff %}
+        {{form.user|as_crispy_field}}
+        {% else %}
+        {{request.user}}
+        {% endif %}
+
+        {{form.category|as_crispy_field}}
+        {{form.pfeature|as_crispy_field}}
+        {{form.name|as_crispy_field}}
+        {{form.slug|as_crispy_field}}
+        {{form.image|as_crispy_field}}
+        {{form.description|as_crispy_field}}
+        {{form.price|as_crispy_field}}
+
+        {% if request.user.is_staff %}
+        {{form.star|as_crispy_field}}
+        {% endif %}
+
+        {{form.discount|as_crispy_field}}
+        {{form.available|as_crispy_field}}
+      </div>
+      <button type="submit" class="btn btn-info mt-4 me-3">{{name}}</button>
+
+      <br>
+      <div class="mt-5"></div>
+      {% for comment in comments %}
+      <p class="btn btn-outline-primary">شماره کاربر: {{comment.user.phone_number}}</p><br>
+      <p class="btn btn-outline-primary"> ایمیل کاربر : {{comment.user.email}}</p><br>
+      <p class="btn btn-outline-primary"> کامنت : {{comment.body}}</p><br>
+      {% if request.user.is_staff %}
+                
+                    {% if comment.access %}
+                    <a
+                    href="{% url 'admin_panel:confirm_comment' comment.id %}"
+                    class="btn btn-success"
+                    > 
+                    تایید شده
+                    </a>
+                    {% else %}
+                    <a
+                    href="{% url 'admin_panel:confirm_comment' comment.id %}"
+                    class="btn btn-danger"
+                    > 
+                    در انتظار تایید
+                    </a>
+                    {% endif %}
+
+              
+      {% else %}
+                  {% if comment.access %}
+                  <p
+                 
+                  class="btn btn-success"
+                  > 
+                  تایید شده
+                  </p>
+                  {% else %}
+                  <p
+                 
+                  class="btn btn-danger"
+                  > 
+                  در انتظار تایید
+                  </p>
+                  {% endif %}
+      
+      {% endif %}
+      <br>
+      <div class="mt-5"></div>
+      {% empty %}
+      <p class="btn btn-danger">کامنتی هنوز موجود نیست</p>
+      {% endfor %}
+    </div>
+    </div>
+</form>
+
+{% endblock %}

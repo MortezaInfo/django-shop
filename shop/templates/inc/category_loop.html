@@ -1,0 +1,15 @@
+  
+  
+{% for cat in cat.scategory.all %}
+  {% if cat.scategory.all %}
+    <li class="dropdown"><a href="{{ cat.get_absolute_url }}"><span>{{cat.name}}</span> <i class="bi bi-chevron-down"></i></a>
+    <ul>
+      {% include 'inc/category_loop.html' %} 
+    </ul>
+  {% else %}
+  <li><a href="{{ cat.get_absolute_url }}">{{cat.name}}</a></li>
+  {% endif %}
+{% endfor %}
+  
+  
+

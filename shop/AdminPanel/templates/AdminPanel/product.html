@@ -1,0 +1,130 @@
+{% extends './base.html' %} {% block content %}
+
+
+  <div class="container-fluid px-4 text-center">
+    <h1 class="mt-4"> محصولات شرکت {{user}}</h1>
+    
+    <a href="{% url 'admin_panel:add_product' %}" class="btn btn-info mt-3"> افزودن محصول</a>
+    <a href="{% url 'admin_panel:add_feature' %}" class="btn btn-info mt-3"> افزودن فیچر</a>
+
+    <div class="card mb-4 mt-5">
+      <div class="card-header">
+        </div>
+      <div class="card-body">
+        <table id="datatablesSimple">
+          <thead>
+            <tr>
+              <th>اسم</th>
+              <th>عکس</th>
+              <th>توضیحات</th>
+              <th>ستاره</th>
+              <th>تخفیف</th>
+              <th>در دسترس</th>
+              <th>ویرایش</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>اسم</th>
+              <th>عکس</th>
+              <th>توضیحات</th>
+              <th>ستاره</th>
+              <th>تخفیف</th>
+              <th>در دسترس</th>
+              <th>ویرایش</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            {% for product in products %}
+            <tr>
+              <td>
+                <a href="{% url 'home:product_detail' product.id %}" class="btn btn-warning">
+                  {{product.name}}
+                </a>
+              </td>
+              <td><img src="{{product.image.url}}" class="border" style="width: 100px; height: 100px;" alt=""></td>
+              <td>{{product.discription|striptags|truncatewords:30}}</td>
+              <td>
+                {% if product.star %}
+                {{product.star}}
+                {% else %}
+                <p>0</p>
+                {% endif %}
+              </td>
+              <td>
+                {% if product.discount %}
+                {{product.discount}}
+                {% else %}
+                <p>0</p>
+                {% endif %}
+              </td>
+              <td>
+                {% if product.available %}
+                <p class="btn btn-success"> موجود</p>
+                {% else %}
+                <p class="btn btn-danger">ناموجود</p>
+                {% endif %}
+
+              </td>
+              <td>
+                <a
+                  href="{% url 'admin_panel:edit_product' product.id %}"
+                  class="btn btn-info"
+                >
+                  ویرایش محصول</a
+                >
+
+                <a
+                  href="{% url 'admin_panel:add_photo' product.id %}"
+                  class="btn btn-success"
+                  >افزودن عکس</a
+                >
+                {% if request.user.is_staff %}
+                
+                    {% if product.access %}
+                    <a
+                    href="{% url 'admin_panel:confirm_product' product.id %}"
+                    class="btn btn-success"
+                    > 
+                    تایید شده
+                    </a>
+                    {% else %}
+                    <a
+                    href="{% url 'admin_panel:confirm_product' product.id %}"
+                    class="btn btn-danger"
+                    > 
+                    در انتظار تایید
+                    </a>
+                    {% endif %}
+
+              
+                {% else %}
+                <div class="mt-2"></div>
+                  {% if product.access %}
+                  <div
+                  class="btn btn-success"
+                  > 
+                  تایید شده
+                  </div>
+                  {% else %}
+                  <div
+                  class="btn btn-danger"
+                  > 
+                  در انتظار تایید
+                  </div>
+                  {% endif %}
+
+                {% endif %}
+                
+                
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

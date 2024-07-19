@@ -1,0 +1,28 @@
+{% extends './base.html' %} {% load crispy_forms_tags %} {% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  
+  <div class="card mb-4 mt-5">
+    <div class="card-header">
+      <h1 class="text-center"> {{name}}</h1>
+    </div>
+    <div class="card-body">
+      
+      <div class="row text-center border">
+        {% if request.user.is_staff %}
+        {{form.user|as_crispy_field}}
+        {% endif %}
+        {{form.code|as_crispy_field}}
+        {{form.valid_form|as_crispy_field}}
+        {{form.valid_to|as_crispy_field}}
+        {{form.discount|as_crispy_field}}
+        {{form.active|as_crispy_field}}
+      </div>
+      <button type="submit" class="btn btn-info mt-4 me-3">{{name}}</button>
+
+    </div>
+    </div>
+</form>
+
+{% endblock %}

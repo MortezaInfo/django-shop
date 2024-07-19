@@ -1,0 +1,21 @@
+{% extends './base_theme.html' %} {% load widget_tweaks %} {% block content %}
+<form class="login100-form validate-form" method="post" action="">
+  {% csrf_token %}
+
+  <span class="login100-form-title p-b-43"> ورود به حساب کاربری </span>
+
+  <div
+    class="wrap-input100 validate-input"
+    data-validate="Valid email is required: ex@abc.xyz"
+  >
+    {{form.phone|add_class:'input100'}}
+    <span class="focus-input100"></span>
+    <span class="label-input100">شماره تماس</span>
+  </div>
+
+  <div class="container-login100-form-btn">
+    <input type="submit" value="دریافت کد" class="login100-form-btn" />
+  </div>
+</form>
+
+{% endblock %}

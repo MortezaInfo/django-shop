@@ -1,0 +1,56 @@
+{% extends './base.html' %} {% block content %}
+
+
+  <div class="container-fluid px-4 text-center">
+    <h1 class="mt-4"> محصولات شرکت {{user}}</h1>
+    
+    <div class="card mb-4 mt-5">
+      <div class="card-header">
+        </div>
+      <div class="card-body text-center">
+        <table id="datatablesSimple">
+          <thead>
+            <tr>
+              <th style="width: 300px;">سازنده</th>
+              <th style="width: 300px;">کد تخفیف</th>
+              <th style="width: 300px;">شروع </th>
+              <th style="width: 300px;">پایان</th>
+              <th style="width: 300px;">درصد تخفیف</th>
+              <th style="width: 300px;">وضعیت</th>
+              <th style="width: 300px;">ویرایش</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            {% for coupon in coupons %}
+            <tr>
+              <td>{{coupon.user}}</td>
+              <td>{{coupon.code}}</td>
+              <td>{{coupon.valid_form}}</td>
+              <td>{{coupon.valid_to}}</td>
+              <td>{{coupon.discount}}</td>
+              <td>
+                {% if coupon.active %}
+                <p class="btn btn-primary">فعال</p>
+                {% else %}
+                <p class="btn btn-danger">غیرفعال</p>
+                {% endif %}
+              </td>
+              <td>
+                <a
+                  href="{% url 'admin_panel:edit_coupon' coupon.id %}"
+                  class="btn btn-info"
+                >
+                  ویرایش کد</a
+                >
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

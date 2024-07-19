@@ -1,0 +1,265 @@
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% load
+widget_tweaks %} {% load ratings %}
+
+<!--  -->
+{% block head %}
+<style>
+  .icon-hover:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+    color: #3b71ca !important;
+  }
+
+  .icon-hover:hover i {
+    color: #3b71ca !important;
+  }
+</style>
+{% endblock %} {% block content %}
+
+<!-- content -->
+<section class="py-5">
+  <div class="mt-5"></div>
+  <div class="mt-5"></div>
+  <div class="mt-5"></div>
+  <div class="mt-5"></div>
+  <div class="container">
+    <div class="row gx-5 align-items-center">
+      <aside class="col-lg-6">
+        <p>{{address}}</p>
+        <p>بازدیدها: {{product.hits.count}}</p>
+        {% if request.user == product.user %}
+        <a
+            href="{% url 'admin_panel:edit_product' product.id %}"
+            class="btn btn-warning shadow-0"
+            > ویرایش محصول  </a
+          >
+        {% endif %}
+        <div class="mt-2"></div>
+        <div class="border rounded-4 mb-3 d-flex justify-content-center">
+          <a
+            data-fslightbox="mygalley"
+            class="rounded-4"
+            target="_blank"
+            data-type="image"
+            href="{{product.image.url}}"
+          >
+            <img
+              style="max-width: 100%; max-height: 100vh; margin: auto"
+              class="rounded-4 fit"
+              src="{{product.image.url}}"
+            >
+          </a>
+        </div>
+
+        <div class="d-flex justify-content-center mb-3">
+          <div class="row row-cols-3 border">
+            {% for image in product.productimage.all %}
+            <div class="col">
+              <a
+                data-fslightbox="mygalley"
+                class="rounded-4"
+                target="_blank"
+                data-type="image"
+                href="{{image.images.url}}"
+              >
+                <img
+                  style="width: 100px; height: 100px"
+                  class="rounded-4 fit"
+                  src="{{image.images.url}}"
+                >
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- thumbs-wrap.// -->
+        <!-- gallery-wrap .end// -->
+      </aside>
+      <main class="col-lg-6">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark">{{product.name}}</h4>
+
+          <div class="d-flex flex-row my-3">
+            <div class="text-warning mb-1 me-2">{% ratings product %}</div>
+          </div>
+          <span class="btn btn-outline-primary text-success ms-2"
+            >دسته بندی:</span
+          >
+          <a href="{{category.get_absolute_url}}">
+            <span class="text-muted btn btn-outline-info"
+              ><i class="fas fa-shopping-basket fa-sm mx-1"></i>
+
+              {{category.name}}
+            </span>
+          </a>
+        </div>
+        <div class="mt-5"></div>
+        <div class="mb-3">
+          <h5 class="mb-1 me-1">قیمت: {{product.get_total_price}} تومان</h5>
+          <span class="text-danger"><s>{{product.price}}</s></span>
+        </div>
+
+        <div class="row">
+          {% for key, value in features.items %}
+          <dt class="col-3">{{ key }}</dt>
+
+          <dd class="col-9">{{ value }}</dd>
+          {% endfor %} {% if product.description %}
+          <dt class="col-3 mt-5">درباره محصول:</dt>
+
+          <dd class="col-9 mt-5">{{product.description}}</dd>
+          {% endif %}
+        </div>
+        <hr />
+        <!-- col.// -->
+        <div class="col-md-4 col-6 mb-3">
+          <a
+            href="{% url 'order:cart_add' product.id %}"
+            class="btn btn-warning shadow-0"
+            >افزودن به سبد خرید</a
+          >
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+<!-- content -->
+
+<section class="bg-light border-top py-4">
+  <div class="container">
+    <div class="row gx-4">
+      <div class="col-lg-8 mb-4">
+        <div class="border rounded-2 px-3 py-2 bg-white">
+          <a
+            href="{% url 'home:product_like' product.id 1 %}"
+            class="btn btn-outline-primary"
+            >like: {{product.product_like}}</a
+          >
+          <a
+            href="{% url 'home:product_like' product.id 0 %}"
+            class="btn btn-outline-danger"
+            >dislike: {{product.product_dislike}}</a
+          >
+          <h3 class="text-center mt-4">نظرات کاربران</h3>
+          <p class="text-center">{{comments.count}} کامنت</p>
+
+          <div class="mt-5"></div>
+          {% if request.user.is_authenticated %}
+          <form action="" method="post">
+            {% csrf_token %} {{form|crispy}}
+            <button type="submit" class="btn btn-outline-info">ارسال</button
+            ><br />
+          </form>
+          {% else %}
+          <p class="alert alert-danger">Just logged in users can comments</p>
+          {% endif %} {% for comment in comments %} {% if comment.access %}
+          <div class="card mt-3">
+            <p class="card-header">
+              {{ comment.user }} | {{ comment.created | timesince }} |
+              <a
+                href="{% url 'home:comment_like' product.id comment.id 1 %}"
+                class="btn btn-outline-primary"
+                >like: {{comment.comment_like}}</a
+              >
+              |
+              <a
+                href="{% url 'home:comment_like' product.id comment.id 0 %}"
+                class="btn btn-outline-danger"
+                >dislike: {{comment.comment_dislike}}</a
+              >
+            </p>
+            <p class="card-body">{{ comment.body }}</p>
+
+            {% if request.user.is_authenticated %}
+
+            <p class="d-inline-flex gap-1">
+              <a
+                class="btn btn-outline-info"
+                data-bs-toggle="collapse"
+                href="#multiCollapseExample{{comment.id}}"
+                role="button"
+                aria-expanded="false"
+                aria-controls="multiCollapseExample1"
+                >ریپلای</a
+              >
+            </p>
+
+            <div
+              class="collapse multi-collapse"
+              id="multiCollapseExample{{comment.id}}"
+            >
+              <div class="card card-body">
+                <form
+                  action="{% url 'home:add_reply'  product.id comment.id %}"
+                  method="post"
+                  class="me-5"
+                >
+                  {% csrf_token %} {{reply_form|crispy}}
+                  <input
+                    type="submit"
+                    value="ارسال"
+                    class="mb-2b btn btn-outline-info"
+                  />
+                </form>
+              </div>
+            </div>
+
+            {% endif %} {% for reply in comment.rcomments.all %} {% if reply.access %}
+            <div class="bg-light me-4 p-3 m-2 border">
+              <p class="cart-header">
+                {{reply.user}} | {{reply.created|timesince}} |<a
+                  href="{% url 'home:comment_like' product.id reply.id 1 %}"
+                  class="btn btn-outline-primary"
+                  >like: {{reply.comment_like}}</a
+                >
+                |
+                <a
+                  href="{% url 'home:comment_like' product.id reply.id 0 %}"
+                  class="btn btn-outline-danger"
+                  >dislike: {{reply.comment_dislike}}</a
+                >
+              </p>
+
+              <p class="card-body">{{ reply.body }}</p>
+            </div>
+            {% endif %} {% endfor %}
+          </div>
+          <br />
+          {% endif %} {% empty %}
+          <p>شما اولین نفری باشید که کامنت میگذارید</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="px-0 border rounded-2 shadow-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">محصولات مشابه</h5>
+              {% for product in category.products.all %}
+              <div class="d-flex mb-3">
+                <a
+                  href="{% url 'home:product_detail'  product.id %}"
+                  class="me-3"
+                >
+                  <img
+                    src="{{product.image.url}}"
+                    style="min-width: 96px; height: 96px"
+                    class="img-md img-thumbnail">
+                </a>
+                <div class="info">
+                  <a href="{% url 'home:product_detail' product.id %}" class="nav-link mb-1"> {{product.name}} </a>
+                  <strong class="text-dark">{{product.price}}</strong>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+
+{% endblock %}

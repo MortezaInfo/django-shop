@@ -1,0 +1,115 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>پرداخت نهایی</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static  'order/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static  'order/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static  'order/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static  'order/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static  'order/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static  'order/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static  'order/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static  'order/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+    {%if messages%}
+    {% for msg in messages %}
+
+    <p class="alert alert-{{msg.tags}}">{{msg}}</p>
+
+    {% endfor %}    
+    {% endif %}
+
+	<div class="contact1">
+		<div class="container-contact1">
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="{% static 'order/images/img-01.png' %}" alt="IMG">
+			</div>
+
+			<form class="contact1-form validate-form" method="post" action="{% url 'order:apply_coupon' order.id %}">
+				{% csrf_token %}
+                <span class="contact1-form-title">
+					کد تخفیف داری ؟؟
+				</span>
+
+                <h2 class="wrap-input1 validate-input" >
+                    {{order.get_total_price}} تومان
+                </h2>
+                
+				<div class="wrap-input1 validate-input" data-validate = "Name is required">
+                    {{form.code|add_class:'input1'}}
+					<span class="shadow-input1"></span>
+				</div>
+
+
+				<div class="container-contact1-form-btn">
+					<button class="contact1-form-btn" type="submit">
+						<span>
+							ثبت کد تخفیف 
+							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+                <div class="mt-3"></div>
+				<div class="container-contact1-form-btn">
+					<a class="contact1-form-btn" href="{% url 'order:order_pay' order.id %}">
+						<span>
+							پرداخت 
+							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						</span>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'order/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'order/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'order/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'order/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'order/vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<!--===============================================================================================-->
+	<script src="{% static 'order/js/main.js' %}"></script>
+
+</body>
+</html>
+
+
+
+
+

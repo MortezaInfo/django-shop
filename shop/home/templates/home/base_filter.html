@@ -1,0 +1,15 @@
+{% load crispy_forms_tags %}
+
+<form action="" method="get">
+
+    {{form_filter.sort_by|as_crispy_field}}
+    {{form_filter.name|as_crispy_field}}
+    {{form_filter.description|as_crispy_field}}
+    {{form_filter.category_name|as_crispy_field}}
+    {{form_filter.min_star|as_crispy_field}}
+    {{form_filter.max_star|as_crispy_field}}
+    {{form_filter.min_price|as_crispy_field}}
+    {{form_filter.max_price|as_crispy_field}}
+
+    <input type="submit" value="فیلتر">
+</form>

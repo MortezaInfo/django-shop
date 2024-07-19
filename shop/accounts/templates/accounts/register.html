@@ -1,0 +1,80 @@
+{% extends './base_theme.html' %} {% load widget_tweaks %} {% block content %}
+<form class="login100-form validate-form" method="post" action="">
+  {% csrf_token %}
+
+  <span class="login100-form-title p-b-43"> ورود به حساب کاربری </span>
+
+  <div
+    class="wrap-input100 validate-input"
+    data-validate="Valid email is required: ex@abc.xyz"
+  >
+    {{form.email|add_class:'input100'}}
+    <span class="focus-input100"></span>
+    <span class="label-input100">ایمیل</span>
+  </div>
+
+  <div
+    class="wrap-input100 validate-input"
+    data-validate="Password is required"
+  >
+    {{form.full_name|add_class:'input100'}}
+    <span class="focus-input100"></span>
+    <span class="label-input100">نام و نام خانوادگی</span>
+  </div>
+  <div
+    class="wrap-input100 validate-input"
+    data-validate="Password is required"
+  >
+    {{form.phone|add_class:'input100'}}
+    <span class="focus-input100"></span>
+    <span class="label-input100">شماره تماس</span>
+  </div>
+  <div
+    class="wrap-input100 validate-input"
+    data-validate="Password is required"
+  >
+    {{form.password|add_class:'input100'}}
+    <span class="focus-input100"></span>
+    <span class="label-input100">پسورد</span>
+  </div>
+  <div
+    class="wrap-input100 validate-input"
+    data-validate="Password is required"
+  >
+    {{form.password1|add_class:'input100'}}
+    <span class="focus-input100"></span>
+    <span class="label-input100">تکرار پسورد</span>
+  </div>
+
+  <div class="flex-sb-m w-full p-t-3 p-b-32">
+    <div class="contact100-form-checkbox">
+      <input
+        class="input-checkbox100"
+        id="ckb1"
+        type="checkbox"
+        name="remember-me"
+      />
+      <label class="label-checkbox100" for="ckb1"> ذخیره سازی اطلاعات </label>
+    </div>
+  </div>
+
+  <div class="container-login100-form-btn">
+    <button class="login100-form-btn">ثبت نام</button>
+  </div>
+
+  <div class="text-center p-t-46 p-b-20">
+    <span class="txt2"> ثبت نام با موارد زیر </span>
+  </div>
+
+  <div class="login100-form-social flex-c-m">
+    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+      <i class="fa fa-facebook-f" aria-hidden="true"></i>
+    </a>
+
+    <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+    </a>
+  </div>
+</form>
+
+{% endblock %}
